@@ -1,17 +1,25 @@
+import React from 'react';
+
 export const guestRoutes = [
   // {
-  //   path: '/signin',
-  //   name: 'Signin',
+  //   path: '/home',
+  //   name: 'Home',
   //   exact: true,
-  //   component: React.lazy(() => import('../../views/auth/Login/Login')),
+  //   component: React.lazy(() => import('../../views/user/Home/Home')),
   // },
 ];
 
 export const userRoutes = [
-  // {
-  //   path: '/dashboard',
-  //   name: 'Dashboard',
-  //   exact: true,
-  //   component: React.lazy(() => import('../../views/user/Dashboard/Dashboard')),
-  // },
+  {
+    path: '/home',
+    name: 'Home',
+    exact: true,
+    component: React.lazy(() => import('../../views/user/Home/Home')),
+  },
+  {
+    redirectRoute: true,
+    name: 'Home',
+    path: '/home',
+    // rootRedirect: true,
+  },
 ];
