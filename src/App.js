@@ -8,13 +8,15 @@ import { guestRoutes } from './routes';
 // add js
 
 // add css
+// import './assets/css/responsive.css';
+import './assets/css/style.css';
 
 function App() {
   const tokenPresent = !!useSelector(state => state.auth.authToken);
   const pathname = window.location.pathname.split('/')[1];
 
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     dispatch(authenticationValidator());
   }, []);
