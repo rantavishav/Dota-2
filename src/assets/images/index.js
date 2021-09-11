@@ -10,3 +10,10 @@ export { default as STEAM_ICON_SVG } from './header/steam_icon.svg';
 //home
 export { default as HOME_SECOND_PAGE_BG_JPG } from './home/home_second_page_bg.jpg';
 export { default as HOME_FORTH_PAGE_BG_PNG } from './home/home_forth_page_bg.png';
+
+//heroes
+export { default as FILTER_STR_ACTIVE_PNG } from './heroes/filter-str-active.png';
+export { default as FILTER_AGI_ACTIVE_PNG } from './heroes/filter-agi-active.png';
+export { default as FILTER_INT_ACTIVE_PNG } from './heroes/filter-int-active.png';
+export { default as FILTER_DIAMOND_PNG } from './heroes/filter-diamond.png';
+export { default as SEARCH_SVG } from './heroes/search.svg';

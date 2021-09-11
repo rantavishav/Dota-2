@@ -13,6 +13,7 @@ import 'bootstrap/dist/js/bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import './assets/css/responsive.css';
 import './assets/css/style.css';
+import Layout from './views/Layout/Layout';
 
 function App() {
   const tokenPresent = !!useSelector(state => state.auth.authToken);
@@ -35,15 +36,17 @@ function App() {
 
   let mainContent = (
     <>
-      {guestRoutes.map(
-        route =>
-          route.redirectRoute === undefined && (
-            <Route key={route.name} path={route.path} exact={route.exact} name={route.name}>
-              <route.component />
-            </Route>
-          ),
-      )}
-      {redirectHandler()}
+      <Layout>
+        {guestRoutes.map(
+          route =>
+            route.redirectRoute === undefined && (
+              <Route key={route.name} path={route.path} exact={route.exact} name={route.name}>
+                <route.component />
+              </Route>
+            ),
+        )}
+        {redirectHandler()}
+      </Layout>
     </>
   );
   if (tokenPresent) {
