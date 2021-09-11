@@ -29,7 +29,7 @@ function App() {
       .filter(item => item.redirectRoute === undefined)
       .map(item => item.path);
     return !guestRoute.includes(`/${pathname}`) && localStorage.getItem('authToken') == null ? (
-      <Redirect to="/signin" />
+      <Redirect to="/home" />
     ) : null;
   };
 
