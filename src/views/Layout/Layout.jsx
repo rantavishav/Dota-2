@@ -41,7 +41,7 @@ const Layout = props => {
             </div>
           </div>
           <div>
-            <Link to="/">
+            <Link to="/heroes">
               <h2 className="nav-item hover-ob1">Heroes</h2>
             </Link>
           </div>

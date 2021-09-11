@@ -22,6 +22,7 @@ a:hover {
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
+  z-index: 100000;
 }
 
 .navbar-main .dota-logo {
@@ -32,6 +33,7 @@ a:hover {
   background-position: center center;
   margin-right: 40px;
   cursor: pointer;
+  z-index: 100000;
 }
 
 .navbar-navitems {
