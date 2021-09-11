@@ -8,6 +8,9 @@ import { guestRoutes } from './routes';
 // add js
 
 // add css
+import 'bootstrap/dist/js/bootstrap';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 // import './assets/css/responsive.css';
 import './assets/css/style.css';
 

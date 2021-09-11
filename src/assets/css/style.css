@@ -9,8 +9,13 @@ a {
   text-decoration: none;
   color: white;
 }
+a:hover {
+  color: white;
+}
+
 /* NavBar css */
-.navbar,
+
+.navbar-main,
 .navbar-navitems,
 .navbar-login {
   display: flex;
@@ -19,7 +24,7 @@ a {
   width: 100%;
 }
 
-.navbar .dota-logo {
+.navbar-main .dota-logo {
   width: 200px;
   min-width: 200px;
   background-size: contain;
@@ -39,17 +44,17 @@ a {
 }
 
 /* DropwDown Start */
-.dropdown .dropdown-inactive {
+.nav-dropdown-main-conatiner .dropdown-inactive {
   display: none;
 }
-.dropdown .dropdown-active {
+.nav-dropdown-main-conatiner .dropdown-active {
   position: absolute;
   top: 64px;
   color: #fff;
   padding-top: 10px;
   padding-bottom: 5px;
-  background-color: rgba(244, 244, 244, 0.2);
-  backdrop-filter: blur(10px);
+  background-color: transparent;
+  /* backdrop-filter: blur(10px); */
   opacity: 1;
   z-index: 10000;
   min-height: 0;
@@ -58,7 +63,7 @@ a {
   transition-duration: 0.2s;
   border: 2px solid rgba(255, 255, 255, 0.6);
 }
-.dropdown .dropdown-active a {
+.nav-dropdown-main-conatiner .dropdown-active a {
   font-size: 14px;
   letter-spacing: 2px;
   margin-top: 5px;
@@ -68,12 +73,14 @@ a {
   padding-left: 10px;
   padding-right: 10px;
   transition-duration: 0.2s;
+  color: #fff;
 }
-.dropdown .dropdown-active a:hover {
+.nav-dropdown-main-conatiner .dropdown-active a:hover {
   opacity: 1;
   cursor: pointer;
   transition-duration: 0.2s;
-  transform: translateX(5px);
+  transform: translateX(3px);
+  color: #000;
 }
 .navbar-login {
   justify-content: flex-end;
@@ -92,6 +99,7 @@ a {
   padding: 15px 25px;
   /* min-width: 2vw; */
   font-size: 0.6rem;
+  margin-right: 10px;
 }
 .steam-play-for-free:hover {
   border: 3px solid var(--border-color);
@@ -102,6 +110,7 @@ a {
 .steam-play-for-free .steam-button {
   color: #fff;
   width: 7vw;
+  font-size: 1rem;
   text-align: end;
 }
 
@@ -112,13 +121,51 @@ a {
   opacity: 1;
 }
 
+/* Footer Start */
+.rootfooter_RootFooter {
+  text-align: center;
+  width: 100%;
+  z-index: 5;
+  padding: 30px 100px;
+  background-color: #000;
+}
+.rootfooter_RootFooter .rootfooter_Logos {
+  width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.rootfooter_RootFooter .rootfooter_Logos img {
+  margin: 0px 15px 20px 15px;
+  max-height: 30px;
+}
+.rootfooter_RootFooter .rootfooter_Legal {
+  text-align: center;
+  font-size: 14px;
+  color: #777;
+  padding: 0 20px;
+  width: 500px;
+  margin: 0 auto;
+}
 /* 
         Home Page Css
 */
 .home-first-page {
   display: flex;
+  min-height: 84vh;
 }
 
+.home-video-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -10;
+}
+.home-video-container video {
+  max-width: 100%;
+  opacity: 0.8;
+}
 .home-first-page-left,
 .home-first-page-right {
   max-height: 65vh;
@@ -162,6 +209,7 @@ a {
   min-height: 3px;
   background-color: var(--border-color);
   border-radius: 1px;
+  filter: brightness(1);
 }
 
 .steam-play {
@@ -179,6 +227,7 @@ a {
   transition-property: filter, transform, box-shadow;
   transition-timing-function: ease-in-out;
   transition-duration: 0.1s;
+  backdrop-filter: blur(10px);
 }
 .steam-play:hover {
   border: 3px solid var(--border-color);
@@ -355,9 +404,8 @@ a {
 
 /* Home_Second PAge */
 .home-second-page {
-  max-height: 90vh;
+  min-height: 100vh;
   position: relative;
-  margin-top: 13vh;
 }
 
 .homepage_BattleBG {
@@ -385,6 +433,12 @@ a {
   height: 100%;
   position: absolute;
   pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0) 90%,
+    rgba(0, 0, 0, 0.733) 90%,
+    rgb(0, 0, 0) 100%
+  );
 }
 .fade_Fade {
   position: absolute;
@@ -407,7 +461,7 @@ a {
   align-items: center;
   justify-items: center;
   z-index: 5;
-  margin-top: -300px;
+  margin-top: -350px;
 }
 .homepage_HeaderText {
   text-align: center;
@@ -420,6 +474,7 @@ a {
   text-transform: uppercase;
   letter-spacing: 2px;
   filter: sepia(2);
+  font-weight: 700;
 }
 .homepage_HeaderText .Major {
   font-weight: 700;
@@ -428,6 +483,7 @@ a {
   text-transform: uppercase;
   letter-spacing: 2px;
   line-height: 105%;
+  filter: brightness(1);
 }
 .homepage_BodyText {
   text-align: center;
@@ -441,6 +497,7 @@ a {
   font-size: 26px;
   line-height: 115%;
   font-weight: 100;
+  filter: brightness(1);
 }
 .homepage_StandardButton {
   border: 3px solid #ffffff50;
@@ -455,9 +512,12 @@ a {
   align-items: center;
   transition-duration: 0.2s;
   margin-top: 30px;
+  filter: brightness(1);
 }
 .homepage_StandardButton:hover {
-  border: 3px solid var(--border-color);
+  border: 3px solid #ff6046;
+  transform: translateY(-2px);
+  color: #ff6046;
 }
 .homepage_ButtonText {
   font-size: 20px;
@@ -468,3 +528,47 @@ a {
 }
 
 /* Third_hOme_Page */
+.home-third-page {
+  width: 100%;
+  max-width: 100%;
+  min-height: 150vh;
+  background-position: center top;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.733) 90%,
+      rgb(0, 0, 0) 100%
+    ),
+    url('../images/home/third_page_bg.jpg');
+}
+
+.third-page-header-text {
+  margin-top: 50vh;
+}
+
+/* Forth page */
+
+.home-forth-page {
+  /* height: 60vh; */
+  margin-top: 20vh;
+}
+.homepage_JoinBattleSection {
+  width: 100%;
+  margin: 40px auto;
+  background-size: cover;
+  background-repeat: none;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 150px;
+  background-image: url('../images/home/home_forth_page_bg.png');
+}
+.homepage_JoinBattleSection .homepage_HeaderText {
+  margin-left: 30px;
+  text-align: left;
+}
