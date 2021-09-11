@@ -1,8 +1,17 @@
+/* eslint-disable max-len */
 import { Link } from 'react-router-dom';
 import { STEAM_ICON_SVG, ARROW_LEFT_PNG } from '../../../assets/images';
 
 const FirstPage = () => (
   <div className="home-first-page">
+    <div className="home-video-container">
+      <video autoPlay muted preload="auto" loop playsInline>
+        <source
+          type="video/webm"
+          src="https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/homepage/dota_montage_webm.webm"
+        />
+      </video>
+    </div>
     <div className="home-first-page-left">
       <div className="main-quote">
         <div className="main-quote-text">“A MODERN MULTIPLAYER MASTERPIECE.”</div>

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 
@@ -10,11 +11,11 @@ const Layout = props => {
   const [showDropDown, setShowDropDown] = useState(false);
   return (
     <>
-      <nav className="navbar fixed-top navbar-light bg-light pl-0 pr-0 navbar-desktop">
+      <nav className="navbar-main">
         <img src={DOTA2_LOGO_HORIZ_PNG} alt="Dota 2 Logo" className="dota-logo hover-ob1" />
         {/* <img src={DOTA2_LOGO_SYMBOL_PNG} alt="Dota 2 Logo" className="dota-logo small" /> */}
         <div className="navbar-navitems">
-          <div className="dot dropdown show">
+          <div className="nav-dropdown-main-conatiner">
             <h2
               className="nav-item hover-ob1 nav-dropdown"
               data-toggle="dropdown"
@@ -53,13 +54,37 @@ const Layout = props => {
 
         <div className="navbar-login">
           <h3 className="hover-ob1">Login</h3>
-          <div className="steam-play-for-free">
+          <div className="steam-play-for-free mt-3">
             <img src={STEAM_ICON_SVG} alt="" />
-            <h2 className="steam-button">Play for Free</h2>
+            <div className="steam-button">Play for Free</div>
           </div>
         </div>
       </nav>
       {children}
+
+      {/* Footer */}
+      <div className="rootfooter_RootFooter">
+        <div className="rootfooter_Logos">
+          <Link href="https://www.valvesoftware.com/en/about">
+            <img
+              className="rootfooter_FooterLogo"
+              src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/valve_logo.png"
+              alt=""
+            />
+          </Link>
+          <Link href="/">
+            <img
+              className="rootfooter_FooterLogo"
+              src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/footer_logo.png"
+              alt=""
+            />
+          </Link>
+        </div>
+        <div className="rootfooter_Legal">
+          Dota and the Dota logo are trademarks and/or registered trademarks of Valve Corporation.
+          2021 Valve Corporation, all rights reserved.
+        </div>
+      </div>
     </>
   );
 };

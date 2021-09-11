@@ -9,3 +9,4 @@ export { default as STEAM_ICON_SVG } from './header/steam_icon.svg';
 
 //home
 export { default as HOME_SECOND_PAGE_BG_JPG } from './home/home_second_page_bg.jpg';
+export { default as HOME_FORTH_PAGE_BG_PNG } from './home/home_forth_page_bg.png';
