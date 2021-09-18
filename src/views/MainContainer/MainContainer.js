@@ -4,7 +4,6 @@ import { userRoutes } from '../../routes';
 
 const MainContainer = () => {
   const routes = (() => userRoutes)();
-  console.log('routes', routes);
   return (
     <Layout>
       <Switch>
