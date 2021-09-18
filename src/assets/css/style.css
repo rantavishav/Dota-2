@@ -24,7 +24,12 @@ a:hover {
   width: 100%;
   z-index: 100000;
 }
-
+.navbar-main {
+  top: 0;
+  position: absolute;
+  z-index: 9999;
+  background-color: transparent;
+}
 .navbar-main .dota-logo {
   width: 200px;
   min-width: 200px;
