@@ -1,6 +1,7 @@
 // images(png/jpg)
 // export { default as DEFAULT_NEWS_COVER_JPG } from './default_news_cover.jpg';
 export { default as ARROW_LEFT_PNG } from './arrow_left.png';
+export { default as ARROW__SOLID_LEFT_PNG } from './arrow_solid_left.png';
 
 //header
 export { default as DOTA2_LOGO_HORIZ_PNG } from './header/dota2_logo_horiz.png';
@@ -17,6 +18,11 @@ export { default as FILTER_AGI_ACTIVE_PNG } from './heroes_page/filter-agi-activ
 export { default as FILTER_INT_ACTIVE_PNG } from './heroes_page/filter-int-active.png';
 export { default as FILTER_DIAMOND_PNG } from './heroes_page/filter-diamond.png';
 export { default as SEARCH_SVG } from './heroes_page/search.svg';
+
+//attributes
+export { default as HERO_AGILITY_PNG } from './attributes/hero_agility.png';
+export { default as HERO_INTELLIGENCE_PNG } from './attributes/hero_intelligence.png';
+export { default as HERO_STRENGTH_PNG } from './attributes/hero_strength.png';
 
 //heroes
 export { default as ABADDON_PNG } from './heroes/abaddon.png';
