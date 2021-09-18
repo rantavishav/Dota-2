@@ -34,6 +34,7 @@ a:hover {
   margin-right: 40px;
   cursor: pointer;
   z-index: 100000;
+  margin-left: 5px;
 }
 
 .navbar-navitems {
@@ -127,7 +128,7 @@ a:hover {
 .rootfooter_RootFooter {
   text-align: center;
   width: 100%;
-  z-index: 5;
+  z-index: 100000;
   padding: 30px 100px;
   background-color: #000;
 }
@@ -137,10 +138,12 @@ a:hover {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  z-index: 100000;
 }
 .rootfooter_RootFooter .rootfooter_Logos img {
   margin: 0px 15px 20px 15px;
   max-height: 30px;
+  z-index: 100000;
 }
 .rootfooter_RootFooter .rootfooter_Legal {
   text-align: center;
@@ -149,6 +152,7 @@ a:hover {
   padding: 0 20px;
   width: 500px;
   margin: 0 auto;
+  z-index: 100000;
 }
 /* 
         Home Page Css

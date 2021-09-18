@@ -12,7 +12,9 @@ const Layout = props => {
   return (
     <>
       <nav className="navbar-main">
-        <img src={DOTA2_LOGO_HORIZ_PNG} alt="Dota 2 Logo" className="dota-logo hover-ob1" />
+        <Link to="/home" class="dota-logo">
+          <img src={DOTA2_LOGO_HORIZ_PNG} alt="Dota 2 Logo" className="dota-logo hover-ob1" />
+        </Link>
         {/* <img src={DOTA2_LOGO_SYMBOL_PNG} alt="Dota 2 Logo" className="dota-logo small" /> */}
         <div className="navbar-navitems">
           <div className="nav-dropdown-main-conatiner">

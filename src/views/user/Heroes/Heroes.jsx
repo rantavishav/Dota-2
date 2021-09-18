@@ -10,6 +10,7 @@ import {
   FILTER_DIAMOND_PNG,
   SEARCH_SVG,
 } from '../../../assets/images';
+import { HeroCard } from '../../../components';
 
 const Heroes = () => {
   const [isFilterActive, setIsFilterActive] = useState({ isActive: false, type: '' });
@@ -140,10 +141,47 @@ const Heroes = () => {
               style={{ backgroundImage: `url(${SEARCH_SVG})` }}
             />
             <form>
-              <input type="text" value="" />
+              <input type="text" />
             </form>
           </div>
         </div>
+      </div>
+
+      {/* Heros Grid */}
+      {/* <div className="herogridpage_StateLoading">Loading...</div>
+      <div className="herogridpage_NoHeroes">No Heroes match your filter</div> */}
+      <div className="herogridpage_GridList">
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
+        <HeroCard />
       </div>
     </div>
   );
