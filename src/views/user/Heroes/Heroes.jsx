@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable max-len */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import './Heroes.css';
 import {
   FILTER_STR_ACTIVE_PNG,
@@ -11,10 +12,16 @@ import {
   SEARCH_SVG,
 } from '../../../assets/images';
 import { HeroCard } from '../../../components';
+import { getAllHeroesListSaga } from '../../../store/actions';
 
 const Heroes = () => {
+  const dispatch = useDispatch();
   const [isFilterActive, setIsFilterActive] = useState({ isActive: false, type: '' });
   const [isComplexFilterActive, setIsComplexFilterActive] = useState({ isActive: false, value: 0 });
+  const { heroesList } = useSelector(state => state.hero);
+  useEffect(() => {
+    dispatch(getAllHeroesListSaga());
+  }, []);
 
   return (
     <div className="heroes-page-main-container">
@@ -150,39 +157,13 @@ const Heroes = () => {
       {/* Heros Grid */}
       {/* <div className="herogridpage_StateLoading">Loading...</div>
       <div className="herogridpage_NoHeroes">No Heroes match your filter</div> */}
-      <div className="herogridpage_GridList">
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-      </div>
+      {heroesList && heroesList.length && (
+        <div className="herogridpage_GridList">
+          {heroesList.map(hero => (
+            <HeroCard hero={hero} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

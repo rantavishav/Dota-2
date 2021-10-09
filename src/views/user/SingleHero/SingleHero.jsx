@@ -3,7 +3,8 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 /* eslint-disable max-len */
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import ReactPlayer from 'react-player';
 import { Link } from 'react-router-dom';
 import { ARROW__SOLID_LEFT_PNG, HERO_AGILITY_PNG } from '../../../assets/images';
 import './SingleHero.css';
@@ -11,6 +12,36 @@ import './SingleHero.css';
 const SingleHero = () => {
   const [hideBio, setHideBio] = useState(true);
   const [showAblitiyButton, setShowAblitiyButton] = useState(1); // index of the image to show
+  const [ablitiyVideoUrl, setAblitiyVideoUrl] = useState('');
+
+  useEffect(() => {
+    if (showAblitiyButton === 1) {
+      setAblitiyVideoUrl(
+        'https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/abilities/alchemist/alchemist_acid_spray.webm',
+      );
+    } else if (showAblitiyButton === 2) {
+      setAblitiyVideoUrl(
+        'https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/abilities/alchemist/alchemist_unstable_concoction.webm',
+      );
+    } else if (showAblitiyButton === 3) {
+      setAblitiyVideoUrl(
+        'https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/abilities/alchemist/alchemist_goblins_greed.webm',
+      );
+    } else if (showAblitiyButton === 4) {
+      setAblitiyVideoUrl(
+        'https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/abilities/alchemist/alchemist_chemical_rage.webm',
+      );
+    } else if (showAblitiyButton === 5) {
+      setAblitiyVideoUrl(
+        'https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/abilities/alchemist/alchemist_aghanims_shard.webm',
+      );
+    } else if (showAblitiyButton === 6) {
+      setAblitiyVideoUrl(
+        'https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/abilities/alchemist/alchemist_aghanims_scepter.webm',
+      );
+    }
+  }, [showAblitiyButton]);
+
   return (
     <>
       <div className="heroPage_UpperSection">
@@ -391,7 +422,15 @@ const SingleHero = () => {
           <div className="heropage_AbilityLeft">
             <div className="heropage_VideoContainer">
               <div className="heropage_FadeUp" />
-              <video
+              <ReactPlayer
+                playing
+                loop
+                muted
+                fallback={<div>Loading...</div>}
+                className="heropage_HeroPortrait"
+                url={ablitiyVideoUrl}
+              />
+              {/* <video
                 className="heropage_HeroPortrait"
                 autoPlay
                 preload="auto"
@@ -480,7 +519,7 @@ const SingleHero = () => {
                       : ''
                   }`}
                 />
-              </video>
+              </video> */}
             </div>
 
             <div className="heropage_AbilitySelector">
