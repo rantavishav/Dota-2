@@ -21,7 +21,7 @@ const ThirdPage = () => (
       From magical tacticians to fierce brutes and cunning rogues, Dota 2&apos;s hero pool is
       massive and limitlessly diverse. Unleash incredible abilities and devastating ultimates on
       your way to victory.
-      <Link to="/">
+      <Link to="/heroes">
         <div className="homepage_StandardButton">
           <div className="homepage_ButtonText">View All Heroes</div>
         </div>

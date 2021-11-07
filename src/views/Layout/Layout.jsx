@@ -31,10 +31,10 @@ const Layout = props => {
             <Dropdown.Item href="https://www.dota2.com/store" target="_blank" rel="noreferrer">
               Store
             </Dropdown.Item>
-            <Dropdown.Item as={Link} to="/home">
+            <Dropdown.Item as={Link} to="/home" disabled>
               Patches
             </Dropdown.Item>
-            <Dropdown.Item as={Link} to="/home">
+            <Dropdown.Item as={Link} to="/home" disabled>
               News
             </Dropdown.Item>
           </Dropdown.Menu>
@@ -46,9 +46,9 @@ const Layout = props => {
             </Link>
           </div>
           <div>
-            <Link to="/">
+            {/* <Link to="/" disabled>
               <h2 className="nav-item hover-ob1">News</h2>
-            </Link>
+            </Link> */}
           </div>
         </div>
 
