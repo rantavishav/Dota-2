@@ -1,16 +1,21 @@
 /* eslint-disable max-len */
+import ReactPlayer from 'react-player';
 import { Link } from 'react-router-dom';
 import { STEAM_ICON_SVG, ARROW_LEFT_PNG } from '../../../assets/images';
 
 const FirstPage = () => (
   <div className="home-first-page">
     <div className="home-video-container">
-      <video autoPlay muted preload="auto" loop playsInline>
-        <source
-          type="video/webm"
-          src="https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/homepage/dota_montage_webm.webm"
-        />
-      </video>
+      <ReactPlayer
+        playing
+        loop
+        muted
+        playsinline
+        url="https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/homepage/dota_montage_webm.webm"
+        width="100%"
+        height="100%"
+        style={{ opacity: 0.7 }}
+      />
     </div>
     <div className="home-first-page-left">
       <div className="main-quote">
@@ -18,19 +23,19 @@ const FirstPage = () => (
         <div className="main-quote-author">- DESTRUCTOID</div>
         <div className="homepage-horizonBar" />
       </div>
-      <div className="steam-play">
+      <a href="https://www.dota2.com/store" target="_blank" className="steam-play" rel="noreferrer">
         <img src={STEAM_ICON_SVG} alt="" />
         <div className="steam-play-right">
           <div className="text">Play for Free</div>
           <div className="download">Download on Steam</div>
         </div>
-      </div>
+      </a>
     </div>
     <div className="home-first-page-right">
       <div className="home-news-container">
         <div className="news-top">
           <div className="latest-news">Latest News</div>
-          <Link to="/">View All</Link>
+          <Link to="/home">View All</Link>
           <img className="homePage-right-arrow" src={ARROW_LEFT_PNG} alt="" />
         </div>
 

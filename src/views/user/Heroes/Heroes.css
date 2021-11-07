@@ -156,7 +156,7 @@
 
 .herogridpage_GridList {
   width: 80vw;
-  min-height: 100vh;
+  min-height: 45vh;
   margin-top: 15px;
   transition-property: height;
   transition-timing-function: ease-out;
@@ -169,7 +169,7 @@
   /* position: relative; */
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 @keyframes herogridpage_gridIn_NeQOP {
   0% {

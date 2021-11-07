@@ -14,14 +14,14 @@ export const guestRoutes = [
     component: React.lazy(() => import('../../views/user/Heroes/Heroes')),
   },
   {
-    path: '/hero/:heroName',
+    path: '/heroes/:heroName',
     name: 'Single Hero',
     exact: true,
     component: React.lazy(() => import('../../views/user/SingleHero/SingleHero')),
   },
   {
     redirectRoute: true,
-    name: 'Home',
+    name: 'HomePage',
     path: '/home',
     // rootRedirect: true,
   },

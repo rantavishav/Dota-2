@@ -1,14 +1,16 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 
-import { useState } from 'react';
+// import { useState } from 'react';
+import { Dropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { DOTA2_LOGO_HORIZ_PNG, STEAM_ICON_SVG } from '../../assets/images';
 
 const Layout = props => {
   const { children } = props;
-  const [showDropDown, setShowDropDown] = useState(false);
+  // const [showDropDown, setShowDropDown] = useState(false);
   return (
     <>
       <nav className="navbar-main">
@@ -16,32 +18,28 @@ const Layout = props => {
           <img src={DOTA2_LOGO_HORIZ_PNG} alt="Dota 2 Logo" className="dota-logo hover-ob1" />
         </Link>
         {/* <img src={DOTA2_LOGO_SYMBOL_PNG} alt="Dota 2 Logo" className="dota-logo small" /> */}
+        <Dropdown>
+          <Dropdown.Toggle
+            className="d-flex align-items-center"
+            id="dropdown-basic"
+            style={{ background: 'transparent', borderColor: 'transparent', opacity: 0.8 }}
+          >
+            <h2>Game</h2>
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            <Dropdown.Item href="https://www.dota2.com/store" target="_blank" rel="noreferrer">
+              Store
+            </Dropdown.Item>
+            <Dropdown.Item as={Link} to="/home">
+              Patches
+            </Dropdown.Item>
+            <Dropdown.Item as={Link} to="/home">
+              News
+            </Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
         <div className="navbar-navitems">
-          <div className="nav-dropdown-main-conatiner">
-            <h2
-              className="nav-item hover-ob1 nav-dropdown"
-              data-toggle="dropdown"
-              onClick={() => setShowDropDown(!showDropDown)}
-            >
-              Game
-            </h2>
-            <div className={`${showDropDown ? 'dropdown-active' : 'dropdown-inactive'}`}>
-              <a
-                className="dropdown-item hover-ob1"
-                href="https://www.dota2.com/store"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Store
-              </a>
-              <Link className="dropdown-item hover-ob1" to="/">
-                Patches
-              </Link>
-              <Link className="dropdown-item hover-ob1" to="/">
-                News
-              </Link>
-            </div>
-          </div>
           <div>
             <Link to="/heroes">
               <h2 className="nav-item hover-ob1">Heroes</h2>
