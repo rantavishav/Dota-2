@@ -157,5 +157,5 @@ export { default as ICON_MOVEMENT_SPEED_PNG } from './Single_hero_page/icon_move
 export { default as ICON_PROJECTILE_SPEED_PNG } from './Single_hero_page/icon_projectile_speed.png';
 export { default as ICON_TURN_RATE_PNG } from './Single_hero_page/icon_turn_rate.png';
 export { default as ICON_VISION_PNG } from './Single_hero_page/icon_vision.png';
-export { default as MELEE_ATTACK_TYPE } from './Single_hero_page/melee-attack-type';
+export { default as MELEE_ATTACK_TYPE } from './Single_hero_page/melee-attack-type.svg';
 export { default as RANGED_ATTACK_TYPE_SVG } from './Single_hero_page/ranged-attack-type.svg';
