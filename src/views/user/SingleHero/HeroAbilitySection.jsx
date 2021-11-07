@@ -82,7 +82,7 @@ const HeroAbilitySection = props => {
         </div>
 
         {/* Right container        */}
-        <div className="heropage_AbilityRight">
+        {/* <div className="heropage_AbilityRight">
           <div className="heropage_AbilityInfoContainer">
             <div className="heropage_AbilityMain">
               <img
@@ -129,33 +129,6 @@ const HeroAbilitySection = props => {
                       )}
                   </div>
                 </div>
-                {/* <div className="heropage_Column">
-                  <div className="heropage_DetailsValues">
-                    <div className="heropage_ValueElement">
-                      Ability:<div className="heropage_ValueValue">Point Target</div>
-                    </div>
-                    <div className="heropage_ValueElement">
-                      Damage Type:
-                      <div className="heropage_ValueValue">
-                        <span
-                          style={{
-                            color: 'rgb(255,0, 0)',
-                          }}
-                        >
-                          Physical
-                          <span />
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="heropage_Column">
-                  <div className="heropage_DetailsValues">
-                    <div className="heropage_ValueElement">
-                      Pierces Spell Immunity:<div className="heropage_ValueValue">No</div>
-                    </div>
-                  </div>
-                </div> */}
               </div>
               <div className="heropage_SpecificValues">
                 {currentAbility.ability_stats &&
@@ -189,7 +162,7 @@ const HeroAbilitySection = props => {
               <div className="heropage_Lore">{currentAbility.trivia_description}</div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Bottom navigation */}
