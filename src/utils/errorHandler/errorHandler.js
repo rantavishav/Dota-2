@@ -89,8 +89,8 @@ export default function* errorHandler({
         if (isLogoutCall) {
           successHandler({});
         } else {
-          console.log('error.response.data.msg', error.response.data.msg);
-          // yield put(logout({ logoutType: 'manual' }));
+          // console.log('error.response.data.msg', error.response.data.msg);
+          yield put(failHandler(error.response.data.msg));
         }
       } else if (
         error.response.data.msg !== undefined &&

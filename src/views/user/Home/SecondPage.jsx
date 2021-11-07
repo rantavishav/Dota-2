@@ -31,7 +31,7 @@ const SecondPage = () => (
         Heroes in a 5v5 team clash. Dota is the deepest multi-player action RTS game ever made and
         there&apos;s always a new strategy or tactic to discover. It&apos;s completely free to play
         and always will be – start defending your ancient now.
-        <Link to="/">
+        <Link to="/home">
           <div className="homepage_StandardButton">
             <div className="homepage_ButtonText">See What&apos;s New</div>
           </div>

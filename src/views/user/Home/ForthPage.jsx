@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 const ForthPage = () => (
   <div className="home-forth-page">
     <div className="homepage_JoinBattleSection">
@@ -13,11 +11,11 @@ const ForthPage = () => (
         <div className="homepage-horizonBar" />
       </div>
 
-      <Link href="https://store.steampowered.com/app/570/Dota_2/">
+      <a href="https://store.steampowered.com/app/570/Dota_2/" target="_blank" rel="noreferrer">
         <div className="homepage_StandardButton">
           <div className="homepage_ButtonText">Play Free Now</div>
         </div>
-      </Link>
+      </a>
     </div>
   </div>
 );

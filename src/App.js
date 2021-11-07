@@ -17,7 +17,6 @@ import Layout from './views/Layout/Layout';
 function App() {
   const tokenPresent = !!useSelector(state => state.auth.authToken);
   const pathname = window.location.pathname.split('/')[1];
-  console.log('pathname', pathname);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,7 +27,6 @@ function App() {
     const guestRoute = guestRoutes
       .filter(item => item.redirectRoute === undefined)
       .map(item => item.path);
-    console.log('guestRoute', guestRoute);
     return !guestRoute.includes(`/${pathname}`) ? <Redirect to="/home" /> : null;
   };
 

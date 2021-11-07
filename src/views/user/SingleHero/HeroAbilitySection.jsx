@@ -5,12 +5,12 @@ import { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { Link } from 'react-router-dom';
 import { Loader } from '../../../components';
-import { GetSingleHeroData } from '../../../utils';
+// import { GetSingleHeroData } from '../../../utils';
 
 const HeroAbilitySection = props => {
-  const { previousHeroName, nextHeroName, heroName } = props;
+  const { previousHeroName, nextHeroName, heroName, singleHeroData } = props;
   const [currentAbility, setCurrentAbility] = useState({});
-  const [singleHeroData, setSingleHeroData] = useState(null);
+  // const [singleHeroData, setSingleHeroData] = useState(null);
   const cdnUrl = 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react';
 
   useEffect(() => {
@@ -19,10 +19,10 @@ const HeroAbilitySection = props => {
     }
   }, [singleHeroData]);
 
-  useEffect(() => {
-    setSingleHeroData(GetSingleHeroData({ heroName }));
-    return () => setSingleHeroData(null);
-  }, []);
+  // useEffect(() => {
+  //   setSingleHeroData(GetSingleHeroData({ heroName }));
+  //   return () => setSingleHeroData(null);
+  // }, []);
 
   return !singleHeroData &&
     singleHeroData !== null &&

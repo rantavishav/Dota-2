@@ -16,7 +16,7 @@ import {
 
 const HeroStatsSection = props => {
   // eslint-disable-next-line no-unused-vars
-  const { heroData } = props;
+  const { heroData, singleHeroData } = props;
 
   return (
     <div className="heropage_DetailsBarContainer">
@@ -69,63 +69,90 @@ const HeroStatsSection = props => {
               <div className="heropage_RoleName">Carry</div>
               <div className="heropage_BarContainer">
                 <div className="heropage_BarBackground" />
-                <div className="heropage_BarFilled" style={{ width: '66.6%' }} />
+                <div
+                  className="heropage_BarFilled"
+                  style={{ width: `${singleHeroData.role_levels[0] * 33.3}%` }}
+                />
               </div>
             </div>
             <div className="heropage_Role">
               <div className="heropage_RoleName">Support</div>
               <div className="heropage_BarContainer">
                 <div className="heropage_BarBackground" />
-                <div className="heropage_BarFilled" style={{ width: '33.3%' }} />
+                <div
+                  className="heropage_BarFilled"
+                  style={{ width: `${singleHeroData.role_levels[1] * 33.3}%` }}
+                />
               </div>
             </div>
             <div className="heropage_Role">
               <div className="heropage_RoleName">Nuker</div>
               <div className="heropage_BarContainer">
                 <div className="heropage_BarBackground" />
-                <div className="heropage_BarFilled" style={{ width: '33.3%' }} />
+                <div
+                  className="heropage_BarFilled"
+                  style={{ width: `${singleHeroData.role_levels[2] * 33.3}%` }}
+                />
               </div>
             </div>
             <div className="heropage_Role">
               <div className="heropage_RoleName">Disabler</div>
               <div className="heropage_BarContainer">
                 <div className="heropage_BarBackground" />
-                <div className="heropage_BarFilled" style={{ width: '33.3%' }} />
+                <div
+                  className="heropage_BarFilled"
+                  style={{ width: `${singleHeroData.role_levels[3] * 33.3}%` }}
+                />
               </div>
             </div>
             <div className="heropage_Role">
               <div className="heropage_RoleName">Jungler</div>
               <div className="heropage_BarContainer">
                 <div className="heropage_BarBackground" />
-                <div className="heropage_BarFilled" style={{ width: '0%' }} />
+                <div
+                  className="heropage_BarFilled"
+                  style={{ width: `${singleHeroData.role_levels[4] * 33.3}%` }}
+                />
               </div>
             </div>
             <div className="heropage_Role">
               <div className="heropage_RoleName">Durable</div>
               <div className="heropage_BarContainer">
                 <div className="heropage_BarBackground" />
-                <div className="heropage_BarFilled" style={{ width: '66.6%' }} />
+                <div
+                  className="heropage_BarFilled"
+                  style={{ width: `${singleHeroData.role_levels[5] * 33.3}%` }}
+                />
               </div>
             </div>
             <div className="heropage_Role">
               <div className="heropage_RoleName">Escape</div>
               <div className="heropage_BarContainer">
                 <div className="heropage_BarBackground" />
-                <div className="heropage_BarFilled" style={{ width: '0%' }} />
+                <div
+                  className="heropage_BarFilled"
+                  style={{ width: `${singleHeroData.role_levels[6] * 33.3}%` }}
+                />
               </div>
             </div>
             <div className="heropage_Role">
               <div className="heropage_RoleName">Pusher</div>
               <div className="heropage_BarContainer">
                 <div className="heropage_BarBackground" />
-                <div className="heropage_BarFilled" style={{ width: '0%' }} />
+                <div
+                  className="heropage_BarFilled"
+                  style={{ width: `${singleHeroData.role_levels[7] * 33.3}%` }}
+                />
               </div>
             </div>
             <div className="heropage_Role">
               <div className="heropage_RoleName">Initiator</div>
               <div className="heropage_BarContainer">
                 <div className="heropage_BarBackground" />
-                <div className="heropage_BarFilled" style={{ width: '33.3%' }} />
+                <div
+                  className="heropage_BarFilled"
+                  style={{ width: `${singleHeroData.role_levels[8] * 33.3}%` }}
+                />
               </div>
             </div>
           </div>
@@ -145,7 +172,7 @@ const HeroStatsSection = props => {
               </div>
               <div className="heropage_ValueElement">
                 <img className="heropage_SwordIcon" src={ICON_ATTACK_TIME_PNG} alt="" />
-                {heroData.attack_rate}
+                {heroData.attack_rate.toFixed(1)}
               </div>
               <div className="heropage_ValueElement">
                 <img className="heropage_SwordIcon" src={ICON_ATTACK_RANGE_PNG} alt="" />
@@ -160,7 +187,7 @@ const HeroStatsSection = props => {
               <div className="heropage_HeroValueTitle">Defense</div>
               <div className="heropage_ValueElement">
                 <img className="heropage_SwordIcon" src={ICON_ARMOR_PNG} alt="" />
-                {heroData.armor}
+                {heroData.armor.toFixed(1)}
               </div>
               <div className="heropage_ValueElement">
                 <img className="heropage_SwordIcon" src={ICON_MAGIC_RESIST_PNG} alt="" />
