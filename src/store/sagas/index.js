@@ -1,7 +1,7 @@
 import { all, takeLatest } from 'redux-saga/effects';
 import * as actionLabels from '../actionLabels';
 import { loginSaga, authenticationValidatorSaga } from './auth/auth';
-import { getAllHeroesListSaga } from './hero/hero';
+import { getAllHeroesListSaga, getHeroDataSaga } from './hero/hero';
 import { getLatestNewsSaga } from './news/news';
 
 export function* watchAuthentication() {
@@ -17,4 +17,5 @@ export function* watchNews() {
 
 export function* watchHero() {
   yield all([takeLatest(actionLabels.GET_ALL_HEROES_LIST_SAGA, getAllHeroesListSaga)]);
+  yield all([takeLatest(actionLabels.GET_HERO_DATA_SAGA, getHeroDataSaga)]);
 }

@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 import './HeroCard.css';
 import {
-  ABADDON_PNG,
+  // ABADDON_PNG,
   HERO_AGILITY_PNG,
   HERO_INTELLIGENCE_PNG,
   HERO_STRENGTH_PNG,
@@ -13,9 +13,9 @@ const HeroCard = props => {
   return (
     <Link
       className="herogridpage_HeroIcon"
-      to={`/heroes/${hero.localized_name}`}
+      to={`/heroes/${hero.name}`}
       style={{
-        backgroundImage: `url(${ABADDON_PNG})`,
+        backgroundImage: `url(https://api.opendota.com${hero.img})`,
       }}
     >
       <div className="herogridpage_HeroNameContainer">

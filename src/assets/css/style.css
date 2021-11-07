@@ -583,3 +583,22 @@ a:hover {
   margin-left: 30px;
   text-align: left;
 }
+
+/* No data found */
+.no-data-found {
+  height: 100%;
+  width: 100%;
+  min-height: 300px;
+}
+
+.no-data-found .no-data-found-text {
+  height: 100%;
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ddd;
+  font-size: 1.5rem;
+  font-weight: 100;
+}

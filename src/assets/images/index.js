@@ -146,3 +146,16 @@ export { default as ABADDON_PNG } from './heroes/abaddon.png';
 // export { default as WISP_PNG } from './heroes/wisp.png';
 // export { default as WITCH_DOCTOR_PNG } from './heroes/witch_doctor.png';
 // export { default as ZUUS_PNG } from './heroes/zuus.png';
+
+// Single_hero_page
+export { default as ICON_ARMOR_PNG } from './Single_hero_page/icon_armor.png';
+export { default as ICON_ATTACK_RANGE_PNG } from './Single_hero_page/icon_attack_range.png';
+export { default as ICON_ATTACK_TIME_PNG } from './Single_hero_page/icon_attack_time.png';
+export { default as ICON_DAMAGE_PNG } from './Single_hero_page/icon_damage.png';
+export { default as ICON_MAGIC_RESIST_PNG } from './Single_hero_page/icon_magic_resist.png';
+export { default as ICON_MOVEMENT_SPEED_PNG } from './Single_hero_page/icon_movement_speed.png';
+export { default as ICON_PROJECTILE_SPEED_PNG } from './Single_hero_page/icon_projectile_speed.png';
+export { default as ICON_TURN_RATE_PNG } from './Single_hero_page/icon_turn_rate.png';
+export { default as ICON_VISION_PNG } from './Single_hero_page/icon_vision.png';
+export { default as MELEE_ATTACK_TYPE } from './Single_hero_page/melee-attack-type';
+export { default as RANGED_ATTACK_TYPE_SVG } from './Single_hero_page/ranged-attack-type.svg';
