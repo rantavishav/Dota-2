@@ -4,7 +4,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
 import rootReducer from './store/reducer';
-import { watchAuthentication } from './store/sagas';
+import { watchAuthentication, watchHero, watchNews } from './store/sagas';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -19,6 +19,8 @@ const sagaMiddleware = createSagaMiddleware();
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(sagaMiddleware)));
 
 sagaMiddleware.run(watchAuthentication);
+sagaMiddleware.run(watchNews);
+sagaMiddleware.run(watchHero);
 
 ReactDOM.render(
   <React.StrictMode>

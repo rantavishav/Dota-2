@@ -1,20 +1,75 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable max-len */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import './Heroes.css';
 import {
   FILTER_STR_ACTIVE_PNG,
   FILTER_AGI_ACTIVE_PNG,
   FILTER_INT_ACTIVE_PNG,
-  FILTER_DIAMOND_PNG,
+  // FILTER_DIAMOND_PNG,
   SEARCH_SVG,
 } from '../../../assets/images';
-import { HeroCard } from '../../../components';
+import { HeroCard, Loader, NoDataFound } from '../../../components';
+import { getAllHeroesListSaga } from '../../../store/actions';
 
 const Heroes = () => {
-  const [isFilterActive, setIsFilterActive] = useState({ isActive: false, type: '' });
-  const [isComplexFilterActive, setIsComplexFilterActive] = useState({ isActive: false, value: 0 });
+  const dispatch = useDispatch();
+  const [attributeType, setAttributeType] = useState('');
+  // const [isComplexFilterActive, setIsComplexFilterActive] = useState({ isActive: false, value: 0 });
+  const [filterHeroesList, setFilterHeroesList] = useState(null);
+  const [heroSearch, setHeroSearch] = useState('');
+  const { heroesList } = useSelector(state => state.hero);
+
+  useEffect(() => {
+    if (attributeType || heroSearch) {
+      if (heroSearch) {
+        if (attributeType === 'STR') {
+          setFilterHeroesList(
+            heroesList.filter(
+              hero =>
+                hero.primary_attr === 'str' &&
+                hero.localized_name.toLowerCase().startsWith(heroSearch.toLowerCase()),
+            ),
+          );
+        } else if (attributeType === 'AGI') {
+          setFilterHeroesList(
+            heroesList.filter(
+              hero =>
+                hero.primary_attr === 'agi' &&
+                hero.localized_name.toLowerCase().startsWith(heroSearch.toLowerCase()),
+            ),
+          );
+        } else if (attributeType === 'INT') {
+          setFilterHeroesList(
+            heroesList.filter(
+              hero =>
+                hero.primary_attr === 'int' &&
+                hero.localized_name.toLowerCase().startsWith(heroSearch.toLowerCase()),
+            ),
+          );
+        } else {
+          setFilterHeroesList(
+            heroesList.filter(hero =>
+              hero.localized_name.toLowerCase().startsWith(heroSearch.toLowerCase()),
+            ),
+          );
+        }
+      } else if (attributeType === 'STR') {
+        setFilterHeroesList(heroesList.filter(hero => hero.primary_attr === 'str'));
+      } else if (attributeType === 'AGI') {
+        setFilterHeroesList(heroesList.filter(hero => hero.primary_attr === 'agi'));
+      } else if (attributeType === 'INT') {
+        setFilterHeroesList(heroesList.filter(hero => hero.primary_attr === 'int'));
+      }
+    } else {
+      setFilterHeroesList(heroesList);
+    }
+  }, [heroesList, attributeType, heroSearch]);
+  useEffect(() => {
+    dispatch(getAllHeroesListSaga());
+  }, []);
 
   return (
     <div className="heroes-page-main-container">
@@ -34,49 +89,40 @@ const Heroes = () => {
         <div className="herogridpage_SpecificFilterContainer">
           <div className="herogridpage_SelectorLabel">Attribute</div>
           <div
-            className={`herogridpage_Filter ${
-              isFilterActive.type === 'STR' && isFilterActive.isActive ? `selected` : ''
-            }`}
+            className={`herogridpage_Filter ${attributeType === 'STR' ? `selected` : ''}`}
             style={{
               backgroundImage: `url(${FILTER_STR_ACTIVE_PNG})`,
             }}
             onClick={() =>
-              setIsFilterActive({
-                isActive: isFilterActive.type !== 'STR' ? true : !isFilterActive.isActive,
-                type: 'STR',
-              })
+              setAttributeType(currentSelectedAttribute =>
+                currentSelectedAttribute === 'STR' ? '' : 'STR',
+              )
             }
           />
           <div
-            className={`herogridpage_Filter ${
-              isFilterActive.type === 'AGI' && isFilterActive.isActive ? `selected` : ''
-            }`}
+            className={`herogridpage_Filter ${attributeType === 'AGI' ? `selected` : ''}`}
             style={{
               backgroundImage: `url(${FILTER_AGI_ACTIVE_PNG})`,
             }}
             onClick={() =>
-              setIsFilterActive({
-                isActive: isFilterActive.type !== 'AGI' ? true : !isFilterActive.isActive,
-                type: 'AGI',
-              })
+              setAttributeType(currentSelectedAttribute =>
+                currentSelectedAttribute === 'AGI' ? '' : 'AGI',
+              )
             }
           />
           <div
-            className={`herogridpage_Filter ${
-              isFilterActive.type === 'INT' && isFilterActive.isActive ? `selected` : ''
-            }`}
+            className={`herogridpage_Filter ${attributeType === 'INT' ? `selected` : ''}`}
             style={{
               backgroundImage: `url(${FILTER_INT_ACTIVE_PNG})`,
             }}
             onClick={() =>
-              setIsFilterActive({
-                isActive: isFilterActive.type !== 'INT' ? true : !isFilterActive.isActive,
-                type: 'INT',
-              })
+              setAttributeType(currentSelectedAttribute =>
+                currentSelectedAttribute === 'INT' ? '' : 'INT',
+              )
             }
           />
         </div>
-        <div className="herogridpage_SpecificFilterContainer">
+        {/* <div className="herogridpage_SpecificFilterContainer">
           <div className="herogridpage_SelectorLabel">Complexity</div>
           <div
             className={`herogridpage_Filter ${
@@ -133,15 +179,15 @@ const Heroes = () => {
               })
             }
           />
-        </div>
+        </div> */}
         <div className="herogridpage_SearchBarContainer">
           <div className="herogridpage_SearchBar">
             <div
               className="herogridpage_MagnifyingGlass"
               style={{ backgroundImage: `url(${SEARCH_SVG})` }}
             />
-            <form>
-              <input type="text" />
+            <form onSubmit={e => e.preventDefault()}>
+              <input type="text" onChange={e => setHeroSearch(e.target.value)} />
             </form>
           </div>
         </div>
@@ -150,39 +196,19 @@ const Heroes = () => {
       {/* Heros Grid */}
       {/* <div className="herogridpage_StateLoading">Loading...</div>
       <div className="herogridpage_NoHeroes">No Heroes match your filter</div> */}
-      <div className="herogridpage_GridList">
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-        <HeroCard />
-      </div>
+      {filterHeroesList ? (
+        filterHeroesList.length ? (
+          <div className="herogridpage_GridList">
+            {filterHeroesList.map(hero => (
+              <HeroCard hero={hero} key={hero.id} />
+            ))}
+          </div>
+        ) : (
+          <NoDataFound text="No Heroes found" />
+        )
+      ) : (
+        <Loader />
+      )}
     </div>
   );
 };
