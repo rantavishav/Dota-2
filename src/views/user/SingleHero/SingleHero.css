@@ -682,12 +682,14 @@
   max-width: 1500px;
   min-height: 542px;
   display: flex;
+  justify-content: center;
   flex-direction: row;
   margin-top: -50px;
   margin-bottom: 200px;
 }
 .heropage_HeroAbilities .heropage_AbilityLeft {
-  width: 55%;
+  width: 60%;
+  /* width: 100%; */
   margin-right: 20px;
 }
 .heropage_HeroAbilities .heropage_AbilityLeft .heropage_VideoContainer {
