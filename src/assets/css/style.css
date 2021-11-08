@@ -160,6 +160,12 @@ a:hover {
   z-index: 100000;
 }
 /* 
+       MAIN_CONTENT_CONTAINER
+*/
+.main-content-container {
+  min-height: 65vh;
+}
+/* 
         Home Page Css
 */
 .home-first-page {
@@ -364,6 +370,9 @@ a:hover {
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.7);
+  opacity: 0.5;
+}
+.blogcapsule-Entry:hover::after {
   opacity: 1;
 }
 .fade-Fade {

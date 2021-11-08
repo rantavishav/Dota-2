@@ -20,6 +20,12 @@ export const guestRoutes = [
     component: React.lazy(() => import('../../views/user/SingleHero/SingleHero')),
   },
   {
+    path: '/news',
+    name: 'News',
+    exact: true,
+    component: React.lazy(() => import('../../views/user/News/News')),
+  },
+  {
     redirectRoute: true,
     name: 'HomePage',
     path: '/home',
