@@ -159,3 +159,6 @@ export { default as ICON_TURN_RATE_PNG } from './Single_hero_page/icon_turn_rate
 export { default as ICON_VISION_PNG } from './Single_hero_page/icon_vision.png';
 export { default as MELEE_ATTACK_TYPE } from './Single_hero_page/melee-attack-type.svg';
 export { default as RANGED_ATTACK_TYPE_SVG } from './Single_hero_page/ranged-attack-type.svg';
+
+// News_page
+export { default as COMING_SOON_PNG } from './News/coming_soon.png';
