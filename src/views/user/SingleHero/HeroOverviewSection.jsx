@@ -4,6 +4,7 @@
 import { useState } from 'react';
 import ReactPlayer from 'react-player';
 import { Link } from 'react-router-dom';
+import ReactHtmlParser from 'react-html-parser';
 import {
   ARROW__SOLID_LEFT_PNG,
   HERO_AGILITY_PNG,
@@ -85,7 +86,7 @@ const HeroOverViewSection = props => {
 
         <div className="heropage_BioOrSummaryContainer">
           <div className={`heropage_BioContainer ${hideBio ? 'heropage_Hidden' : ''}`}>
-            {singleHeroData.bio}
+            {ReactHtmlParser(singleHeroData.bio)}
             <div className="heropage_ShowBio" onClick={() => setHideBio(!hideBio)}>
               Close History
             </div>
@@ -93,7 +94,7 @@ const HeroOverViewSection = props => {
 
           <div className={`heropage_SummaryContainer ${hideBio ? '' : 'heropage_Hidden'}`}>
             <div className="heropage_Lore">
-              {singleHeroData.description}
+              {ReactHtmlParser(singleHeroData.description)}
               {/* Synthesizing <span className="Bold">extra resources</span> from each and every kill,
               Alchemist has no trouble gathering the tools needed to destroy his foes. Ambushing
               enemies with <span className="Bold">corrosive acid</span> and a host of{' '}

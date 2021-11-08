@@ -1,5 +1,5 @@
-import { lazy, Suspense, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { Suspense, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { authenticationValidator } from './store/actions';
 import { Spinner } from './components';
@@ -15,7 +15,6 @@ import './assets/css/style.css';
 import Layout from './views/Layout/Layout';
 
 function App() {
-  const tokenPresent = !!useSelector(state => state.auth.authToken);
   const pathname = window.location.pathname.split('/')[1];
   const dispatch = useDispatch();
 
@@ -30,7 +29,7 @@ function App() {
     return !guestRoute.includes(`/${pathname}`) ? <Redirect to="/home" /> : null;
   };
 
-  let mainContent = (
+  const mainContent = (
     <>
       <Layout>
         {guestRoutes.map(
@@ -45,13 +44,6 @@ function App() {
       </Layout>
     </>
   );
-  if (tokenPresent) {
-    mainContent = (
-      <>
-        <Route path="/" component={lazy(() => import('./views/MainContainer/MainContainer'))} />
-      </>
-    );
-  }
 
   return (
     <Suspense fallback={<Spinner />}>
